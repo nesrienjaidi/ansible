@@ -1,0 +1,23 @@
+[demo_servers] 	
+centos01 ansible_host=10.0.0.21
+centos02 ansible_host=10.0.0.22
+ubuntu01 ansible_host=10.0.0.31
+ubuntu02 ansible_host=10.0.0.32
+
+[centos] 	
+centos01 ansible_host=10.0.0.21 ansible_ssh_user=vagrant
+centos02 ansible_host=10.0.0.22 ansible_ssh_user=vagrant
+
+[ubuntu] 	
+ubuntu01 ansible_host=10.0.0.31
+ubuntu02 ansible_host=10.0.0.32
+
+[demo_servers:vars]
+ansible_ssh_user=vagrant
+
+[ubuntu:vars]
+ansible_ssh_user=ubuntu
+ansible_ssh_pass=ubuntu
+
+
+
