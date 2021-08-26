@@ -1,0 +1,7 @@
+<body>
+<center>
+ <h1>the hostename of the webserver is {{ansible_hostname | upper}}</h1>
+ <h3>It is running on {{ansible_os_family | upper}} system</h3>
+ <p>it is a {{stage | replace("prod", "Production")}} server</p>
+</center>
+</body>

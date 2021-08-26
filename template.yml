@@ -1,0 +1,12 @@
+---
+- name: create index.html from template
+  hosts: centos
+  become: yes
+  tasks:
+  - name: copy the index.html template
+    template:
+      src: index.html.j2
+      dest: /var/www/html/index.html
+      mode: 0400
+      owner: apache
+      group: apache
