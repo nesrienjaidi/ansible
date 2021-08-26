@@ -1,0 +1,39 @@
+--- 	
+- name: Apache MySQL installed	
+  hosts: ubuntu 	
+  become: yes 	
+  tasks: 	
+  - name: apt-get update + installation MySQL 	
+    apt: 	
+      name: mysql-server 	
+      update_cache: yes  
+
+  - name: Python MySQL install
+    apt:
+      name: python-mysqldb
+      update_cache: yes
+      cache_valid_time: 3600
+      state: present
+
+  - name: start configuration Mysql
+    service:
+      name: mysql
+      enabled: true 
+      state: started
+
+  - name: Creation new MySQL User
+    mysql_user:
+      name: admin
+      host: "localhost" 
+      password: admin
+      priv: "*.*:ALL,GRANT"
+      state: present
+      login_user: root
+      login_password: password
+      check_implicit_admin: yes
+
+  - name: create database
+    mysql_db:
+      name: mydb
+      login_user: root
+      login_password: "password"
