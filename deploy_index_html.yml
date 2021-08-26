@@ -1,0 +1,7 @@
+---
+- name: deploy index.html to wab servers
+  hosts: centos
+  become: true
+  tasks:
+  - name: copy index.html
+    copy: src="{{stage}}_index.html" dest=/var/www/html/index.html

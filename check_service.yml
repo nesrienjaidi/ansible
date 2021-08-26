@@ -1,0 +1,9 @@
+---
+- name: Redémarrag_Service
+  hosts: centos
+  become: true
+  tasks: 
+  - name: Redémarrage_service
+    service:
+      name: "{{service}}"
+      state: restarted
