@@ -1,0 +1,12 @@
+---
+- name: demo loop
+  hosts: centos
+  become: yes
+  tasks:
+  - name: check if service is started
+    systemd:
+      name: "{{item}}"
+      state: started
+    loop:
+    - httpd
+    - sshd
